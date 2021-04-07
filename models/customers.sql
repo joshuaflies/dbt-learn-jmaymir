@@ -31,7 +31,7 @@ lifetime_value as (
         sum(amount) as lifetime_value
     
     FROM {{ ref('stg_payments') }}
-    
+
     group by customer_id
 ),
 

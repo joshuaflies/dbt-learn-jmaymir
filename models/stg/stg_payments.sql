@@ -18,7 +18,7 @@ payments as (
     SELECT 
     order_id,
     customer_id,
-    SUM(amount) as payment
+    SUM(amount)::FLOAT/100::FLOAT as payment
     FROM orders 
     JOIN payment 
     ON payment.orderid = orders.order_id
@@ -39,4 +39,14 @@ SELECT
  Can see we have duplicate order ids
 
  Corrected by grouping by order id
+ */
+
+ /*
+Incorrect total amount
+
+Need to filter payment status to be "success" instead of "fail"
+
+SELECT SUM(payment) FROM payments
+
+Also divide by 100 in order to get dollar instead of cents
  */

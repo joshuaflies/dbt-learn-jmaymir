@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: jaffle_shop
-    description: Warehouse about the jaffle shop
+    description: "{{ doc('jaffle_shop')}}"
     database: raw
     tables:
       - name: orders

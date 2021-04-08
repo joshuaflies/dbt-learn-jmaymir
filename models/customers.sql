@@ -28,7 +28,7 @@ customer_orders as (
 lifetime_value as (
     select
         customer_id,
-        sum(amount) as lifetime_value
+        sum(payment) as lifetime_value
     
     FROM {{ ref('stg_payments') }}
 

@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: Warehouse about the jaffle shop
+    database: raw
+    tables:
+      - name: orders
+        description: orders placed by customers in the jaffle shop
+        columns:
+          - name: id
+            description: Primary key of the table
+            tests:
+              - unique
+              - not_null
+        freshness: # make this a little more strict
+          warn_after: {count: 6, period: hour}
+          error_after: {count: 48, period: hour}
+        loaded_at_field: _etl_loaded_at
